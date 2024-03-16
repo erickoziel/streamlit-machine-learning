@@ -6,8 +6,8 @@ import numpy as np
 import pickle
 
 # Cargar el modelo entrenado
-with open('models/model_iris.pkl', 'rb') as file:
-    modelo = pickle.load(file) # Tuvo que haber creado con la misma versión de s
+with open('models/classification_model.pkl', 'rb') as file:
+    model = pickle.load(file) # Tuvo que haber creado con la misma versión de s
 
 # Encabezado de la app
 st.write("""
@@ -37,13 +37,14 @@ df.columns = ['Largo del sépalo (cm)', 'Ancho del sépalo (cm)', 'Largo del pé
 st.dataframe(df, hide_index=True)
 
 # Realizar la predicción
-pred = modelo.predict(df.values)
-pred_proba = modelo.predict_proba(df.values)
+pred = model.predict(df.values)
+pred_proba = model.predict_proba(df.values)
 
 st.subheader('Predicción')
 left_column, right_column = st.columns([0.4, 0.6])
 with left_column:
     # Mostrar la predicción
+    st.write("Tipo de flor iris:")
     iris_species = np.array(['Setosa', 'Versicolor', 'Virginica'])
     st.info((iris_species[pred][0]))
 
