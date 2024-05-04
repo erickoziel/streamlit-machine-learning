@@ -1,5 +1,3 @@
-# app de streamlit que utiliza el moodelo de ML de clasificación de flores iris 
-
 import streamlit as st
 import pandas as pd
 import numpy as np

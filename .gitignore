@@ -154,3 +154,7 @@ cython_debug/
 
 # Custom ignore
 *.pkl
+*.keras
+*.h5
+
+private/
